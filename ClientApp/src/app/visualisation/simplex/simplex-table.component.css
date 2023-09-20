@@ -1,0 +1,26 @@
+.red {
+  color: red;
+  font-family: monospace;
+}
+
+.green {
+  color: green;
+  font-family: monospace;
+}
+
+
+
+.header {
+  font-family: monospace;
+  color: #FFF
+}
+
+.bold {
+  font-family: monospace;
+  color: #3f51b5;
+  font-weight: bolder;
+}
+
+mat-table {
+  color: #282a3a;
+}

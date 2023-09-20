@@ -1,0 +1,7 @@
+.summary-table {
+  flex:1;
+  background: #282a3a;
+  min-width: 500px;
+  font-family: monospace;
+  color: #FFF;
+}

@@ -1,0 +1,36 @@
+<mat-card>
+  
+    <mat-form-field>
+      <mat-label>X</mat-label>
+      <mat-select [(ngModel)]="X">
+        <mat-option *ngFor="let option of XYOptions" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> &nbsp;
+
+    <mat-form-field>
+      <mat-label>Y</mat-label>
+      <mat-select [(ngModel)]="Y">
+        <mat-option *ngFor="let option of XYOptions" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> &nbsp;
+
+
+    <mat-form-field>
+      <mat-label>Accuracy</mat-label>
+      <mat-select [(ngModel)]="Accuracy">
+        <mat-option *ngFor="let option of AccuracyOptions" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> &nbsp;
+
+  <button color="secondary" mat-raised-button (click)="efficiencyRequest()">Calculate Efficiency</button>
+
+  <textarea cols="30" readonly class="output" rows="10" placeholder=" Output will appear here">{{result}}</textarea>
+
+</mat-card>
+

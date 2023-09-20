@@ -1,0 +1,22 @@
+
+
+
+<mat-card>
+  <mat-card-title>Simplex Algorithm Steps</mat-card-title>
+  <mat-card-content>
+    Below you should find the steps of the simplex Tableau method being performed on your linear program. For each step the pivot row will appear in red and the variable entering the basis will be green
+  </mat-card-content>
+
+  <div *ngFor="let dataSource of dataSources; let stepIndex=index" >
+  <mat-card-title>
+    Step {{stepIndex+1}}
+  </mat-card-title>
+    <br />
+  <mat-card-content >
+    <app-simplex-table-component [data]="dataSource"></app-simplex-table-component>
+    <br />
+  </mat-card-content>
+  </div>
+</mat-card>
+
+

@@ -1,0 +1,53 @@
+
+
+
+
+<mat-table #table [dataSource]="data" class="monospace">
+  <ng-container matColumnDef="Step">
+    <mat-header-cell class="monospace" *matHeaderCellDef> Phase </mat-header-cell>
+    <mat-cell class="monospace" *matCellDef="let element; let colIndex=index ">
+      {{colIndex/2}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Guess">
+    <mat-header-cell *matHeaderCellDef> Guess</mat-header-cell>
+    <mat-cell *matCellDef="let element ">
+      {{element.guess}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Max Step">
+    <mat-header-cell *matHeaderCellDef> Max Step</mat-header-cell>
+    <mat-cell *matCellDef="let element ">
+      {{element.maxStep}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Satisfactory">
+    <mat-header-cell *matHeaderCellDef>All Constraints Satisfied</mat-header-cell>
+    <mat-cell *matCellDef="let element ">
+      {{element. isSatisfactory}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="Solved Primal/Dual">
+    <mat-header-cell *matHeaderCellDef>Solved Primal or Dual</mat-header-cell>
+    <mat-cell *matCellDef="let element ">
+      {{element.solvedDual}}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="expandedDetail">
+    <mat-cell *matCellDef="let detail">
+      <app-mwum-summary-table-component [data]="detail.element.rowSummary">
+      </app-mwum-summary-table-component>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"
+           matRipple
+           class="element-row"
+           [class.expanded]="expandedElement == row"
+           (click)="expandedElement = row"></mat-row>
+  <mat-row *matRowDef="let row; columns: ['expandedDetail']; when: isExpansionDetailRow"
+           [@detailExpand]="row.element == expandedElement ? 'expanded' : 'collapsed'"
+           style="overflow:hidden" class="grey">
+  </mat-row>
+</mat-table>
+

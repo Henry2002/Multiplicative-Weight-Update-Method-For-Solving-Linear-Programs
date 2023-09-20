@@ -1,0 +1,13 @@
+
+
+    <mat-table #table [dataSource]="data" class="purple">
+      <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+        <mat-header-cell [ngClass]="getHeaderClass(disCol)" *matHeaderCellDef> {{disCol}}</mat-header-cell>
+        <mat-cell *matCellDef="let element " [ngClass]="getClass(element[disCol].isInPivotRow,element[disCol].isEnteringVariable)">
+          {{element[disCol].value}}
+        </mat-cell>
+      </ng-container>
+      <mat-header-row  *matHeaderRowDef="displayedColumns"> </mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;" > </mat-row>
+    </mat-table>
+

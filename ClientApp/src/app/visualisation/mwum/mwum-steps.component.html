@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card>
+    <mat-card-title>MWUM Whack-A-Mole Algorithm Steps</mat-card-title>
+    <mat-card-content>
+      Below you should find the steps of the MWUM Whack-A-Mole algorithm being performed on your linear program.
+      For each guess you may click it to find out more about the algorithm step.
+    </mat-card-content>
+
+    <br />
+      <mat-card-content>
+
+        <span> Lower Bound : {{lowerBound}}</span> &nbsp;
+        <span> Upper Bound : {{upperBound}} </span>
+        <br />
+        <app-mwum-table-component [data]="dataSource" *ngIf="dataLoaded"></app-mwum-table-component>
+        <br />
+      </mat-card-content>
+   
+  </mat-card>
+</mat-card>

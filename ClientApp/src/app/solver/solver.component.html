@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<mat-toolbar>
+  <mat-toolbar-row class="title-center">
+    <span>Linear Program Solver</span>
+  </mat-toolbar-row>
+ 
+  <mat-toolbar-row class="actions">
+    <button color="primary" mat-raised-button (click)="solveLinearProgram()">{{buttonText}}</button>&nbsp;
+    <mat-form-field  *ngIf="!this.comparisonMode">
+      <mat-label>Algorithm</mat-label>
+      <mat-select [(ngModel)]="selectedAlgorithm">
+        <mat-option *ngFor="let algorithm of algorithms" [value]="algorithm">
+          {{algorithm}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> &nbsp;
+    <mat-form-field *ngIf="selectedAlgorithm=='MWUM' && !this.comparisonMode">
+      <mat-label>Epsilon Value</mat-label>
+      <mat-select [(ngModel)]="selectedEpsilon">
+        <mat-option *ngFor="let epsilon of epsilonOptions" [value]="epsilon">
+          {{epsilon}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> &nbsp;
+
+    <span class="fill-remaining-space"></span>
+
+    <button *ngIf="isSuccess" color="secondary" mat-raised-button (click)="goToSteps()">Show Steps</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<div class="editor">
+  <div [innerHTML]="htmlString" class="line-numbers">
+</div>
+
+  <textarea  cols="80" placeholder=" For information about how to use the Linear Program Solver please see the help and about page..." #textarea (keyup)="onKey(textarea)" class="input"  [(ngModel)]="linearProgram"></textarea>
+  <textarea cols="30" readonly class="output" rows="10" placeholder=" Output will appear here" >{{output}}</textarea>
+</div>
+<mat-toolbar>
+  <mat-toolbar-row class="actions">
+    <label class="mono" for="switch">Algorithm Comparison Mode:</label>&nbsp;
+    <label name="switch" class="switch">
+      <input type="checkbox" (change)="this.comparisonMode=!this.comparisonMode; changeButtonText();">
+      <span class="slider round"></span>
+    </label>&nbsp;
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+
+
+

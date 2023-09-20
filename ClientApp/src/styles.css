@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #e01a76;
+}
+.btn {
+  margin: 4px 2px;
+}
+
+.mono{
+    font-family:monospace;
+}
+
+.btn-primary {
+  color: #00ff90;
+  background-color: #7a99ff;
+}
+
+.grey{
+    background-color:lightgray;
+}
+
+.purple {
+  background: #282a3a;
+  font-family: monospace;
+  color: #FFF;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+body {
+  font-family: Consolas, "Courier New", Courier, monospace;
+}
+
+.title-center {
+  font-family: monospace;
+  display: flex;
+  justify-content: center
+}
+
+.right {
+    display:flex;
+    justify-content:right;
+}

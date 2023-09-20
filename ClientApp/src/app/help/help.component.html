@@ -1,0 +1,89 @@
+<mat-card>
+  <mat-toolbar>
+    <mat-toolbar-row class="title-center">
+      <span>Help and About</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <mat-card-content>
+    <header>
+      <u><strong>LP Formatting</strong></u>
+    </header>
+
+    <p>A Linear Program should have the format of the template provided: </p>
+    <p> MIN/MAX:{{'{'}}Objective Function{{'}'}} - Current operations supported: "+,-"</p>
+    <pre>Constraint - Current operations supported: "+,-,=,<=,>="</pre>
+    <pre>Constraint</pre>
+    <pre>Constraint</pre>
+    <pre>..........</pre>
+
+
+    <p> If there are any formatting issues with the LP inputted, an appropriate error message will appear in the output console</p>
+
+
+    <header>
+      <strong>General LP</strong>
+    </header>
+    <p>
+      General LP solving is currently not supported but will be in a future update
+    </p>
+
+    <p>
+      It is first worth noting that that if you would like to use the operations "{{'<'}},{{'>'}},!=" in a particular constraint, a conversion exists to the supported operations.
+      These operations maybe supported in the future but for now the conversions are: From < ---> <=, subtract 1 from the constraining value. From > --> >=, add one to the constraining value.
+      From != --> >=,<=, create 2 new identical constraints, subtract 1 from one constraining value and replace != --> <=, add 1 to other constraining value and replace != --> >=
+    </p>
+
+    <header>
+      <strong>Packing-Covering LP</strong>
+    </header>
+
+    <p>
+      Currently the LP Compiler will only allow Packing-Covering Linear Programs through. These LPs have the added conditions that: If an LP is to be maximised or minimised then all of its constraints must be either be "{{'<'}}"= or "{{'>'}}"= respectively,
+      there can be no negative values in the constraining values or constraints and all variables must be greater than or equal to zero
+    </p>
+
+    <p> If there is an issue with how you have formatted a give LP an appropriate error message will appear in the output console. </p>
+
+    <header>
+      <u><strong>Algorithms</strong></u>
+    </header>
+
+    <p>
+      The LP solver currently supports two algorithms: Simplex and the Multiplicative Weight Update Method (MWUM). You can switch between these with the algorithm selection box. The Multiplicative Weight Update Method Algorithm is only applicable
+      to packing-covering LPs so if you select that algorithm make sure your LP is actually a packing-covering LP that is formatted correctly or you will receive a semantic error.
+    </p>
+
+    <header>
+      <strong>Simplex</strong>
+    </header>
+
+    <p>
+      The Simplex algorithm implemented here uses its tabular form. If an LP is inputted that needs to be minimized the LP solver will first convert it to its dual maximum form.
+      This is to enforce alligment with the  standard simplex-augmented form. In addition it made the algorithm easier to implement and now the LP solver also has the feature of converting
+      and LP to it's dual.'
+    </p>
+
+    <header>
+      <strong>MWUM</strong>
+    </header>
+
+    <p>
+      There will be some information about the MWUM here
+    </p>
+
+    <p>
+      Upon solving the LP, you will be gven the option to see the steps of the algorithm. Every step will be explained. If you do not understand there are lots of resources available
+    </p>
+
+
+    <header>
+      <strong>Comparison Mode</strong>
+    </header>
+
+    <p>
+      There will be some infor about the comparison mode here
+    </p>
+
+  </mat-card-content>
+
+</mat-card>
